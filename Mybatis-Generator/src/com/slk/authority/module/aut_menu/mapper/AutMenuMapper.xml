@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.authority.module.aut_menu.mapper.AutMenuMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.authority.module.aut_menu.po.AutMenu" >
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="url" property="url" />
+        <result column="depict" property="depict" />
+        <result column="parentid" property="parentid" />
+        <result column="levels" property="levels" />
+        <result column="orders" property="orders" />
+        <result column="region_id" property="region_id" />
+        <result column="menutype_id" property="menutype_id" />
+        <result column="modify_userid" property="modify_userid" />
+        <result column="modify_date" property="modify_date" />
+        <result column="imgurl" property="imgurl" />
+    </resultMap>
+    <resultMap id="BaseResultMasp" extends="" >
+    </resultMap>
+</mapper>

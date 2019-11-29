@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.version.module.vg_process.mapper.VgProcessMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.version.module.vg_process.po.VgProcess" >
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="describes" property="describes" />
+        <result column="urgentstate" property="urgentstate" />
+        <result column="handlestate" property="handlestate" />
+        <result column="prject_id" property="prject_id" />
+        <result column="prjectname" property="prjectname" />
+        <result column="version_id" property="version_id" />
+        <result column="versionname" property="versionname" />
+        <result column="bugtype_id" property="bugtype_id" />
+        <result column="bugtname" property="bugtname" />
+        <result column="tools_id" property="tools_id" />
+        <result column="toolsname" property="toolsname" />
+        <result column="developer_id" property="developer_id" />
+        <result column="developername" property="developername" />
+        <result column="fileurl" property="fileurl" />
+        <result column="createuser_id" property="createuser_id" />
+        <result column="createusername" property="createusername" />
+        <result column="modifdate" property="modifdate" />
+        <result column="lastdate" property="lastdate" />
+    </resultMap>
+</mapper>

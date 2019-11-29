@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.version.module.vg_processIng.mapper.VgProcessingMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.version.module.vg_processIng.po.VgProcessing" >
+        <id column="id" property="id" />
+        <result column="process_id" property="process_id" />
+        <result column="workstate" property="workstate" />
+        <result column="depict" property="depict" />
+        <result column="current_user_id" property="current_user_id" />
+        <result column="currentusername" property="currentusername" />
+        <result column="next_user_id" property="next_user_id" />
+        <result column="nestusername" property="nestusername" />
+        <result column="modifydate" property="modifydate" />
+    </resultMap>
+</mapper>

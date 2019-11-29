@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.authority.module.aut_oper_log.mapper.AutOperLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.authority.module.aut_oper_log.po.AutOperLog" >
+        <id column="oper_id" property="oper_id" />
+        <result column="title" property="title" />
+        <result column="action" property="action" />
+        <result column="method" property="method" />
+        <result column="channel" property="channel" />
+        <result column="oper_name" property="oper_name" />
+        <result column="dept_name" property="dept_name" />
+        <result column="oper_url" property="oper_url" />
+        <result column="oper_ip" property="oper_ip" />
+        <result column="oper_location" property="oper_location" />
+        <result column="oper_param" property="oper_param" />
+        <result column="status" property="status" />
+        <result column="error_msg" property="error_msg" />
+        <result column="oper_time" property="oper_time" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.authority.module.aut_oper_log.po.AutOperLogExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        oper_id,
+        title,
+        action,
+        method,
+        channel,
+        oper_name,
+        dept_name,
+        oper_url,
+        oper_ip,
+        oper_location,
+        oper_param,
+        status,
+        error_msg,
+        oper_time,
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="oper_id != null and oper_id !=''" >oper_id,</if>
+            <if test="title != null and title !=''" >title,</if>
+            <if test="action != null and action !=''" >action,</if>
+            <if test="method != null and method !=''" >method,</if>
+            <if test="channel != null and channel !=''" >channel,</if>
+            <if test="oper_name != null and oper_name !=''" >oper_name,</if>
+            <if test="dept_name != null and dept_name !=''" >dept_name,</if>
+            <if test="oper_url != null and oper_url !=''" >oper_url,</if>
+            <if test="oper_ip != null and oper_ip !=''" >oper_ip,</if>
+            <if test="oper_location != null and oper_location !=''" >oper_location,</if>
+            <if test="oper_param != null and oper_param !=''" >oper_param,</if>
+            <if test="status != null and status !=''" >status,</if>
+            <if test="error_msg != null and error_msg !=''" >error_msg,</if>
+            <if test="oper_time != null and oper_time !=''" >oper_time,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertAutOperLogInfo">
+         INSERT INTO aut_oper_log
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="oper_id != null" >oper_id,</if>
+             <if test="title != null" >title,</if>
+             <if test="action != null" >action,</if>
+             <if test="method != null" >method,</if>
+             <if test="channel != null" >channel,</if>
+             <if test="oper_name != null" >oper_name,</if>
+             <if test="dept_name != null" >dept_name,</if>
+             <if test="oper_url != null" >oper_url,</if>
+             <if test="oper_ip != null" >oper_ip,</if>
+             <if test="oper_location != null" >oper_location,</if>
+             <if test="oper_param != null" >oper_param,</if>
+             <if test="status != null" >status,</if>
+             <if test="error_msg != null" >error_msg,</if>
+             <if test="oper_time != null" >oper_time,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="oper_id != null" >#{oper_id},</if>
+             <if test="title != null" >#{title},</if>
+             <if test="action != null" >#{action},</if>
+             <if test="method != null" >#{method},</if>
+             <if test="channel != null" >#{channel},</if>
+             <if test="oper_name != null" >#{oper_name},</if>
+             <if test="dept_name != null" >#{dept_name},</if>
+             <if test="oper_url != null" >#{oper_url},</if>
+             <if test="oper_ip != null" >#{oper_ip},</if>
+             <if test="oper_location != null" >#{oper_location},</if>
+             <if test="oper_param != null" >#{oper_param},</if>
+             <if test="status != null" >#{status},</if>
+             <if test="error_msg != null" >#{error_msg},</if>
+             <if test="oper_time != null" >#{oper_time},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deleteAutOperLogByKey">
+         DELETE FROM aut_oper_log WHERE oper_id = #{oper_id}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updateAutOperLogByKey">
+         UPDATE aut_oper_log
+         <trim prefix="SET" suffix="WHERE oper_id = #{oper_id}" suffixOverrides=",">
+             <if test="oper_id != null" >oper_id=#{oper_id},</if>
+             <if test="title != null" >title=#{title},</if>
+             <if test="action != null" >action=#{action},</if>
+             <if test="method != null" >method=#{method},</if>
+             <if test="channel != null" >channel=#{channel},</if>
+             <if test="oper_name != null" >oper_name=#{oper_name},</if>
+             <if test="dept_name != null" >dept_name=#{dept_name},</if>
+             <if test="oper_url != null" >oper_url=#{oper_url},</if>
+             <if test="oper_ip != null" >oper_ip=#{oper_ip},</if>
+             <if test="oper_location != null" >oper_location=#{oper_location},</if>
+             <if test="oper_param != null" >oper_param=#{oper_param},</if>
+             <if test="status != null" >status=#{status},</if>
+             <if test="error_msg != null" >error_msg=#{error_msg},</if>
+             <if test="oper_time != null" >oper_time=#{oper_time},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectAutOperLogByPrimary" parameterType="com.slk.authority.module.aut_oper_log.po.AutOperLog" resultMap="BaseResultMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM aut_oper_log
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertAutOperLogBatch">
+        INSERT INTO aut_oper_log (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{oper_id}
+            #{title}
+            #{action}
+            #{method}
+            #{channel}
+            #{oper_name}
+            #{dept_name}
+            #{oper_url}
+            #{oper_ip}
+            #{oper_location}
+            #{oper_param}
+            #{status}
+            #{error_msg}
+            #{oper_time}
+            )
+        </foreach>
+    </insert>
+
+    <!--批量删除操作-->
+    <delete id="deleteAutOperLogBatch">
+        DELETE  FROM aut_oper_log
+        WHERE oper_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量修改操作-->
+    <update id="updateAutOperLogBatch">
+        UPDATE aut_oper_log
+         <trim prefix="SET" suffixOverrides=",">
+             <trim prefix="oper_id = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.oper_id != null and oper_id !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.oper_id}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="title = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.title != null and title !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.title}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="action = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.action != null and action !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.action}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="method = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.method != null and method !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.method}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="channel = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.channel != null and channel !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.channel}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="oper_name = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.oper_name != null and oper_name !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.oper_name}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="dept_name = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.dept_name != null and dept_name !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.dept_name}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="oper_url = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.oper_url != null and oper_url !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.oper_url}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="oper_ip = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.oper_ip != null and oper_ip !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.oper_ip}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="oper_location = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.oper_location != null and oper_location !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.oper_location}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="oper_param = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.oper_param != null and oper_param !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.oper_param}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="status = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.status != null and status !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.status}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="error_msg = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.error_msg != null and error_msg !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.error_msg}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="oper_time = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.oper_time != null and oper_time !=''" >
+                         WHEN oper_id=#{item.oper_id} THEN #{item.oper_time}
+                     </if>
+                 </foreach>
+             </trim>
+         </trim>
+    </update>
+
+    <!--批量修改操作-->
+    <update id="updateAutOperLogBatchPrimary">
+        UPDATE aut_oper_log SET (<include refid="Base_Column_List" />)
+        WHERE oper_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item.oper_id}
+        </foreach>
+    </update>
+
+    <!--批量查询操作-->
+    <selece id="selectAutOperLogBatchList" resultMap="">
+        SELECE <include refid="Base_Column_List" />  aut_oper_log
+        WHERE oper_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>

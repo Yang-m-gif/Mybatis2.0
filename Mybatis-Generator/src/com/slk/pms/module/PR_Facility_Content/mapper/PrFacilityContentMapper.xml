@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.pms.module.PR_Facility_Content.mapper.PrFacilityContentMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.pms.module.PR_Facility_Content.po.PrFacilityContent" >
+        <id column="fid" property="fid" />
+        <result column="facility_type_fid" property="facility_type_fid" />
+        <result column="name" property="name" />
+        <result column="slk_area_fid" property="slk_area_fid" />
+        <result column="remark" property="remark" />
+        <result column="modify_userfid" property="modify_userfid" />
+        <result column="modifyname" property="modifyname" />
+        <result column="modifyrole" property="modifyrole" />
+        <result column="modifydate" property="modifydate" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.pms.module.PR_Facility_Content.po.PrFacilityContentExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fid,facility_type_fid,name,slk_area_fid,remark,modify_userfid,modifyname,modifyrole,modifydate,
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="fid != null and fid !=''" >fid,</if>
+            <if test="facility_type_fid != null and facility_type_fid !=''" >facility_type_fid,</if>
+            <if test="name != null and name !=''" >name,</if>
+            <if test="slk_area_fid != null and slk_area_fid !=''" >slk_area_fid,</if>
+            <if test="remark != null and remark !=''" >remark,</if>
+            <if test="modify_userfid != null and modify_userfid !=''" >modify_userfid,</if>
+            <if test="modifyname != null and modifyname !=''" >modifyname,</if>
+            <if test="modifyrole != null and modifyrole !=''" >modifyrole,</if>
+            <if test="modifydate != null and modifydate !=''" >modifydate,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertPrFacilityContentInfo">
+         INSERT INTO pr_facility_content
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >fid,</if>
+             <if test="facility_type_fid != null" >facility_type_fid,</if>
+             <if test="name != null" >name,</if>
+             <if test="slk_area_fid != null" >slk_area_fid,</if>
+             <if test="remark != null" >remark,</if>
+             <if test="modify_userfid != null" >modify_userfid,</if>
+             <if test="modifyname != null" >modifyname,</if>
+             <if test="modifyrole != null" >modifyrole,</if>
+             <if test="modifydate != null" >modifydate,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >#{fid},</if>
+             <if test="facility_type_fid != null" >#{facility_type_fid},</if>
+             <if test="name != null" >#{name},</if>
+             <if test="slk_area_fid != null" >#{slk_area_fid},</if>
+             <if test="remark != null" >#{remark},</if>
+             <if test="modify_userfid != null" >#{modify_userfid},</if>
+             <if test="modifyname != null" >#{modifyname},</if>
+             <if test="modifyrole != null" >#{modifyrole},</if>
+             <if test="modifydate != null" >#{modifydate},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deletePrFacilityContentByKey">
+         DELETE FROM pr_facility_content WHERE fid = #{fid}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updatePrFacilityContentByKey">
+         UPDATE pr_facility_content
+         <trim prefix="SET" suffix="WHERE fid = #{fid}" suffixOverrides=",">
+             <if test="fid != null" >fid=#{fid},</if>
+             <if test="facility_type_fid != null" >facility_type_fid=#{facility_type_fid},</if>
+             <if test="name != null" >name=#{name},</if>
+             <if test="slk_area_fid != null" >slk_area_fid=#{slk_area_fid},</if>
+             <if test="remark != null" >remark=#{remark},</if>
+             <if test="modify_userfid != null" >modify_userfid=#{modify_userfid},</if>
+             <if test="modifyname != null" >modifyname=#{modifyname},</if>
+             <if test="modifyrole != null" >modifyrole=#{modifyrole},</if>
+             <if test="modifydate != null" >modifydate=#{modifydate},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectPrFacilityContentByPrimary" parameterType="com.slk.pms.module.PR_Facility_Content.po.PrFacilityContent" resultMap="BaseResultExtendMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM pr_facility_content
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertPrFacilityContentBatch">
+        INSERT INTO pr_facility_content (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{fid}
+            #{facility_type_fid}
+            #{name}
+            #{slk_area_fid}
+            #{remark}
+            #{modify_userfid}
+            #{modifyname}
+            #{modifyrole}
+            #{modifydate}
+            )
+        </foreach>
+    </insert>
+
+    <!--批量删除操作-->
+    <delete id="deletePrFacilityContentBatch">
+        DELETE  FROM pr_facility_content
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量修改操作-->
+    <update id="updatePrFacilityContentBatch">
+        UPDATE pr_facility_content
+         <trim prefix="SET" suffixOverrides=",">
+             <trim prefix="fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.fid != null and fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="facility_type_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.facility_type_fid != null and facility_type_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.facility_type_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="name = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.name != null and name !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.name}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="slk_area_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.slk_area_fid != null and slk_area_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.slk_area_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="remark = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.remark != null and remark !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.remark}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modify_userfid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modify_userfid != null and modify_userfid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modify_userfid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modifyname = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modifyname != null and modifyname !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modifyname}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modifyrole = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modifyrole != null and modifyrole !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modifyrole}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modifydate = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modifydate != null and modifydate !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modifydate}
+                     </if>
+                 </foreach>
+             </trim>
+         </trim>
+    </update>
+
+    <!--批量修改操作-->
+    <update id="updatePrFacilityContentBatchPrimary">
+        UPDATE pr_facility_content SET (<include refid="Base_Column_List" />)
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item.fid}
+        </foreach>
+    </update>
+
+</mapper>

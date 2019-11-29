@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.pms.module.PR_Facility.mapper.PrFacilityMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.pms.module.PR_Facility.po.PrFacility" >
+        <id column="fid" property="fid" />
+        <result column="facility_type_fid" property="facility_type_fid" />
+        <result column="type_name" property="type_name" />
+        <result column="facility_content_fid" property="facility_content_fid" />
+        <result column="content_name" property="content_name" />
+        <result column="slk_area_fid" property="slk_area_fid" />
+        <result column="position" property="position" />
+        <result column="remark" property="remark" />
+        <result column="imgurl" property="imgurl" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="patrol_id" property="patrol_id" />
+        <result column="repair_id" property="repair_id" />
+        <result column="handle_date" property="handle_date" />
+        <result column="handle_result" property="handle_result" />
+        <result column="handler_id" property="handler_id" />
+        <result column="patrol_date" property="patrol_date" />
+        <result column="modify_userfid" property="modify_userfid" />
+        <result column="modifyname" property="modifyname" />
+        <result column="modifyrole" property="modifyrole" />
+        <result column="modifydate" property="modifydate" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.pms.module.PR_Facility.po.PrFacilityExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fid,facility_type_fid,type_name,facility_content_fid,content_name,slk_area_fid,position,remark,imgurl,type,status,patrol_id,repair_id,handle_date,handle_result,handler_id,patrol_date,modify_userfid,modifyname,modifyrole,modifydate,
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="fid != null and fid !=''" >fid,</if>
+            <if test="facility_type_fid != null and facility_type_fid !=''" >facility_type_fid,</if>
+            <if test="type_name != null and type_name !=''" >type_name,</if>
+            <if test="facility_content_fid != null and facility_content_fid !=''" >facility_content_fid,</if>
+            <if test="content_name != null and content_name !=''" >content_name,</if>
+            <if test="slk_area_fid != null and slk_area_fid !=''" >slk_area_fid,</if>
+            <if test="position != null and position !=''" >position,</if>
+            <if test="remark != null and remark !=''" >remark,</if>
+            <if test="imgurl != null and imgurl !=''" >imgurl,</if>
+            <if test="type != null and type !=''" >type,</if>
+            <if test="status != null and status !=''" >status,</if>
+            <if test="patrol_id != null and patrol_id !=''" >patrol_id,</if>
+            <if test="repair_id != null and repair_id !=''" >repair_id,</if>
+            <if test="handle_date != null and handle_date !=''" >handle_date,</if>
+            <if test="handle_result != null and handle_result !=''" >handle_result,</if>
+            <if test="handler_id != null and handler_id !=''" >handler_id,</if>
+            <if test="patrol_date != null and patrol_date !=''" >patrol_date,</if>
+            <if test="modify_userfid != null and modify_userfid !=''" >modify_userfid,</if>
+            <if test="modifyname != null and modifyname !=''" >modifyname,</if>
+            <if test="modifyrole != null and modifyrole !=''" >modifyrole,</if>
+            <if test="modifydate != null and modifydate !=''" >modifydate,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertPrFacilityInfo">
+         INSERT INTO pr_facility
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >fid,</if>
+             <if test="facility_type_fid != null" >facility_type_fid,</if>
+             <if test="type_name != null" >type_name,</if>
+             <if test="facility_content_fid != null" >facility_content_fid,</if>
+             <if test="content_name != null" >content_name,</if>
+             <if test="slk_area_fid != null" >slk_area_fid,</if>
+             <if test="position != null" >position,</if>
+             <if test="remark != null" >remark,</if>
+             <if test="imgurl != null" >imgurl,</if>
+             <if test="type != null" >type,</if>
+             <if test="status != null" >status,</if>
+             <if test="patrol_id != null" >patrol_id,</if>
+             <if test="repair_id != null" >repair_id,</if>
+             <if test="handle_date != null" >handle_date,</if>
+             <if test="handle_result != null" >handle_result,</if>
+             <if test="handler_id != null" >handler_id,</if>
+             <if test="patrol_date != null" >patrol_date,</if>
+             <if test="modify_userfid != null" >modify_userfid,</if>
+             <if test="modifyname != null" >modifyname,</if>
+             <if test="modifyrole != null" >modifyrole,</if>
+             <if test="modifydate != null" >modifydate,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >#{fid},</if>
+             <if test="facility_type_fid != null" >#{facility_type_fid},</if>
+             <if test="type_name != null" >#{type_name},</if>
+             <if test="facility_content_fid != null" >#{facility_content_fid},</if>
+             <if test="content_name != null" >#{content_name},</if>
+             <if test="slk_area_fid != null" >#{slk_area_fid},</if>
+             <if test="position != null" >#{position},</if>
+             <if test="remark != null" >#{remark},</if>
+             <if test="imgurl != null" >#{imgurl},</if>
+             <if test="type != null" >#{type},</if>
+             <if test="status != null" >#{status},</if>
+             <if test="patrol_id != null" >#{patrol_id},</if>
+             <if test="repair_id != null" >#{repair_id},</if>
+             <if test="handle_date != null" >#{handle_date},</if>
+             <if test="handle_result != null" >#{handle_result},</if>
+             <if test="handler_id != null" >#{handler_id},</if>
+             <if test="patrol_date != null" >#{patrol_date},</if>
+             <if test="modify_userfid != null" >#{modify_userfid},</if>
+             <if test="modifyname != null" >#{modifyname},</if>
+             <if test="modifyrole != null" >#{modifyrole},</if>
+             <if test="modifydate != null" >#{modifydate},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deletePrFacilityByKey">
+         DELETE FROM pr_facility WHERE fid = #{fid}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updatePrFacilityByKey">
+         UPDATE pr_facility
+         <trim prefix="SET" suffix="WHERE fid = #{fid}" suffixOverrides=",">
+             <if test="fid != null" >fid=#{fid},</if>
+             <if test="facility_type_fid != null" >facility_type_fid=#{facility_type_fid},</if>
+             <if test="type_name != null" >type_name=#{type_name},</if>
+             <if test="facility_content_fid != null" >facility_content_fid=#{facility_content_fid},</if>
+             <if test="content_name != null" >content_name=#{content_name},</if>
+             <if test="slk_area_fid != null" >slk_area_fid=#{slk_area_fid},</if>
+             <if test="position != null" >position=#{position},</if>
+             <if test="remark != null" >remark=#{remark},</if>
+             <if test="imgurl != null" >imgurl=#{imgurl},</if>
+             <if test="type != null" >type=#{type},</if>
+             <if test="status != null" >status=#{status},</if>
+             <if test="patrol_id != null" >patrol_id=#{patrol_id},</if>
+             <if test="repair_id != null" >repair_id=#{repair_id},</if>
+             <if test="handle_date != null" >handle_date=#{handle_date},</if>
+             <if test="handle_result != null" >handle_result=#{handle_result},</if>
+             <if test="handler_id != null" >handler_id=#{handler_id},</if>
+             <if test="patrol_date != null" >patrol_date=#{patrol_date},</if>
+             <if test="modify_userfid != null" >modify_userfid=#{modify_userfid},</if>
+             <if test="modifyname != null" >modifyname=#{modifyname},</if>
+             <if test="modifyrole != null" >modifyrole=#{modifyrole},</if>
+             <if test="modifydate != null" >modifydate=#{modifydate},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectPrFacilityByPrimary" parameterType="com.slk.pms.module.PR_Facility.po.PrFacility" resultMap="BaseResultExtendMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM pr_facility
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertPrFacilityBatch">
+        INSERT INTO pr_facility (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{fid}
+            #{facility_type_fid}
+            #{type_name}
+            #{facility_content_fid}
+            #{content_name}
+            #{slk_area_fid}
+            #{position}
+            #{remark}
+            #{imgurl}
+            #{type}
+            #{status}
+            #{patrol_id}
+            #{repair_id}
+            #{handle_date}
+            #{handle_result}
+            #{handler_id}
+            #{patrol_date}
+            #{modify_userfid}
+            #{modifyname}
+            #{modifyrole}
+            #{modifydate}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

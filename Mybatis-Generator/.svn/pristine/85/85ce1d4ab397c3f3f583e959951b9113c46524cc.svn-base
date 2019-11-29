@@ -1,0 +1,4 @@
+package com.slk.wph.module.Test.service;
+
+ public interface TestService {
+}

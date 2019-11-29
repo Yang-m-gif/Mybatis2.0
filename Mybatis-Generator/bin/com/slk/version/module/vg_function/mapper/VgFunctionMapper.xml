@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.version.module.vg_function.mapper.VgFunctionMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.version.module.vg_function.po.VgFunction" >
+        <id column="id" property="id" />
+        <result column="developer_id" property="developer_id" />
+        <result column="bewrite" property="bewrite" />
+        <result column="version_id" property="version_id" />
+        <result column="fileurls" property="fileurls" />
+        <result column="createtime" property="createtime" />
+        <result column="createuser_id" property="createuser_id" />
+    </resultMap>
+</mapper>

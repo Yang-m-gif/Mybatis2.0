@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.authority.module.aut_logininfor.mapper.AutLogininforMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.authority.module.aut_logininfor.po.AutLogininfor" >
+        <id column="info_id" property="info_id" />
+        <result column="login_name" property="login_name" />
+        <result column="ipaddr" property="ipaddr" />
+        <result column="login_location" property="login_location" />
+        <result column="browser" property="browser" />
+        <result column="os" property="os" />
+        <result column="status" property="status" />
+        <result column="msg" property="msg" />
+        <result column="login_time" property="login_time" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.authority.module.aut_logininfor.po.AutLogininforExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        info_id,
+        login_name,
+        ipaddr,
+        login_location,
+        browser,
+        os,
+        status,
+        msg,
+        login_time,
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="info_id != null and info_id !=''" >info_id,</if>
+            <if test="login_name != null and login_name !=''" >login_name,</if>
+            <if test="ipaddr != null and ipaddr !=''" >ipaddr,</if>
+            <if test="login_location != null and login_location !=''" >login_location,</if>
+            <if test="browser != null and browser !=''" >browser,</if>
+            <if test="os != null and os !=''" >os,</if>
+            <if test="status != null and status !=''" >status,</if>
+            <if test="msg != null and msg !=''" >msg,</if>
+            <if test="login_time != null and login_time !=''" >login_time,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertAutLogininforInfo">
+         INSERT INTO aut_logininfor
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="info_id != null" >info_id,</if>
+             <if test="login_name != null" >login_name,</if>
+             <if test="ipaddr != null" >ipaddr,</if>
+             <if test="login_location != null" >login_location,</if>
+             <if test="browser != null" >browser,</if>
+             <if test="os != null" >os,</if>
+             <if test="status != null" >status,</if>
+             <if test="msg != null" >msg,</if>
+             <if test="login_time != null" >login_time,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="info_id != null" >#{info_id},</if>
+             <if test="login_name != null" >#{login_name},</if>
+             <if test="ipaddr != null" >#{ipaddr},</if>
+             <if test="login_location != null" >#{login_location},</if>
+             <if test="browser != null" >#{browser},</if>
+             <if test="os != null" >#{os},</if>
+             <if test="status != null" >#{status},</if>
+             <if test="msg != null" >#{msg},</if>
+             <if test="login_time != null" >#{login_time},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deleteAutLogininforByKey">
+         DELETE FROM aut_logininfor WHERE info_id = #{info_id}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updateAutLogininforByKey">
+         UPDATE aut_logininfor
+         <trim prefix="SET" suffix="WHERE info_id = #{info_id}" suffixOverrides=",">
+             <if test="info_id != null" >info_id=#{info_id},</if>
+             <if test="login_name != null" >login_name=#{login_name},</if>
+             <if test="ipaddr != null" >ipaddr=#{ipaddr},</if>
+             <if test="login_location != null" >login_location=#{login_location},</if>
+             <if test="browser != null" >browser=#{browser},</if>
+             <if test="os != null" >os=#{os},</if>
+             <if test="status != null" >status=#{status},</if>
+             <if test="msg != null" >msg=#{msg},</if>
+             <if test="login_time != null" >login_time=#{login_time},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectAutLogininforByPrimary" parameterType="com.slk.authority.module.aut_logininfor.po.AutLogininfor" resultMap="BaseResultMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM aut_logininfor
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertAutLogininforBatch">
+        INSERT INTO aut_logininfor (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{info_id}
+            #{login_name}
+            #{ipaddr}
+            #{login_location}
+            #{browser}
+            #{os}
+            #{status}
+            #{msg}
+            #{login_time}
+            )
+        </foreach>
+    </insert>
+
+    <!--批量删除操作-->
+    <delete id="deleteAutLogininforBatch">
+        DELETE  FROM aut_logininfor
+        WHERE info_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量修改操作-->
+    <update id="updateAutLogininforBatch">
+        UPDATE aut_logininfor
+         <trim prefix="SET" suffixOverrides=",">
+             <trim prefix="info_id = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.info_id != null and info_id !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.info_id}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="login_name = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.login_name != null and login_name !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.login_name}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="ipaddr = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.ipaddr != null and ipaddr !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.ipaddr}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="login_location = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.login_location != null and login_location !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.login_location}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="browser = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.browser != null and browser !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.browser}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="os = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.os != null and os !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.os}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="status = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.status != null and status !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.status}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="msg = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.msg != null and msg !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.msg}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="login_time = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.login_time != null and login_time !=''" >
+                         WHEN info_id=#{item.info_id} THEN #{item.login_time}
+                     </if>
+                 </foreach>
+             </trim>
+         </trim>
+    </update>
+
+    <!--批量修改操作-->
+    <update id="updateAutLogininforBatchPrimary">
+        UPDATE aut_logininfor SET (<include refid="Base_Column_List" />)
+        WHERE info_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item.info_id}
+        </foreach>
+    </update>
+
+    <!--批量查询操作-->
+    <selece id="selectAutLogininforBatchList" resultMap="">
+        SELECE <include refid="Base_Column_List" />  aut_logininfor
+        WHERE info_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>

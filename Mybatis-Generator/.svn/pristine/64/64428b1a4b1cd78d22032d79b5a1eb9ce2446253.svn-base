@@ -1,0 +1,4 @@
+package com.slk.wph.module.Demo.service;
+
+ public interface DemoService {
+}

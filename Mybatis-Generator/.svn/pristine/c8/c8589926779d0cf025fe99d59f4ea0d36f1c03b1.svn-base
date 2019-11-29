@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="app_preset_prof_preset_name">GeneratorSqlMap Launch Configuration</entry>
+<entry key="app_preset_prof_preset_filter_s"/>
+<entry key="app_preset_prof_preset_filter_p">com.sui.SpringMvc.module.ZDYH_Application.mapper.*,
+com.sui.SpringMvc.module.ZDYH_Application.po.*,
+com.sui.SpringMvc.module.ZDYH_Application_Company.mapper.*,
+com.sui.SpringMvc.module.ZDYH_Application_Company.po.*,
+com.sui.SpringMvc.module.ZDYH_Button.mapper.*,
+com.sui.SpringMvc.module.ZDYH_Button.po.*,
+com.sui.SpringMvc.module.ZDYH_Menu.mapper.*,
+com.sui.SpringMvc.module.ZDYH_Menu.po.*,
+com.sui.SpringMvc.module.ZDYH_Privilege.mapper.*,
+com.sui.SpringMvc.module.ZDYH_Privilege.po.*,
+com.sui.SpringMvc.module.ZDYH_Role.mapper.*,
+com.sui.SpringMvc.module.ZDYH_Role.po.*,
+com.sui.SpringMvc.module.ZDYH_User_Role.mapper.*,
+com.sui.SpringMvc.module.ZDYH_User_Role.po.*,
+com.sui.Util.*,
+com.sui.mybatis.*</entry>
+<entry key="app_preset_prof_preset_alloc_p">10</entry>
+<entry key="app_preset_"/>
+<entry key="app_preset_prof_preset_samplingRefreshRate_s">1000</entry>
+<entry key="app_preset_prof_preset_stacks_p">false</entry>
+<entry key="app_preset_prof_preset_roots_p">com.sui.SpringMvc.module.ZDYH_Application.mapper.**
+com.sui.SpringMvc.module.ZDYH_Application.po.**
+com.sui.SpringMvc.module.ZDYH_Application_Company.mapper.**
+com.sui.SpringMvc.module.ZDYH_Application_Company.po.**
+com.sui.SpringMvc.module.ZDYH_Button.mapper.**
+com.sui.SpringMvc.module.ZDYH_Button.po.**
+com.sui.SpringMvc.module.ZDYH_Menu.mapper.**
+com.sui.SpringMvc.module.ZDYH_Menu.po.**
+com.sui.SpringMvc.module.ZDYH_Privilege.mapper.**
+com.sui.SpringMvc.module.ZDYH_Privilege.po.**
+com.sui.SpringMvc.module.ZDYH_Role.mapper.**
+com.sui.SpringMvc.module.ZDYH_Role.po.**
+com.sui.SpringMvc.module.ZDYH_User_Role.mapper.**
+com.sui.SpringMvc.module.ZDYH_User_Role.po.**
+com.sui.Util.**
+com.sui.mybatis.**
+</entry>
+<entry key="profiler.settings.instrument.empty.methods">false</entry>
+<entry key="myeclipse.profiling.mode">0</entry>
+<entry key="profiler.settings.istrument.getter.setter.methods">false</entry>
+<entry key="app_preset_prof_preset_samplingRate_s">100</entry>
+<entry key="app_preset_prof_preset_filterMode_s">true</entry>
+<entry key="app_preset_prof_preset_selector"/>
+<entry key="app_preset_prof_preset_refreshRate_s">1000</entry>
+<entry key="app_preset_prof_preset_runnables_p">true</entry>
+<entry key="app_preset_prof_preset_filterMode_p">false</entry>
+<entry key="app_preset_prof_preset_memoryMode_p">true</entry>
+</properties>

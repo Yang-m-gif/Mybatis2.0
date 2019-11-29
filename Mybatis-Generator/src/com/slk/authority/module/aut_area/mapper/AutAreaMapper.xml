@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.authority.module.aut_area.mapper.AutAreaMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.authority.module.aut_area.po.AutArea" >
+        <id column="fid" property="fid" />
+        <result column="name" property="name" />
+        <result column="depict" property="depict" />
+        <result column="orders" property="orders" />
+        <result column="status" property="status" />
+        <result column="modify_userfid" property="modify_userfid" />
+        <result column="modifydate" property="modifydate" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.authority.module.aut_area.po.AutAreaExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fid,
+        name,
+        depict,
+        orders,
+        status,
+        modify_userfid,
+        modifydate,
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="fid != null and fid !=''" >fid,</if>
+            <if test="name != null and name !=''" >name,</if>
+            <if test="depict != null and depict !=''" >depict,</if>
+            <if test="orders != null and orders !=''" >orders,</if>
+            <if test="status != null and status !=''" >status,</if>
+            <if test="modify_userfid != null and modify_userfid !=''" >modify_userfid,</if>
+            <if test="modifydate != null and modifydate !=''" >modifydate,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertAutAreaInfo">
+         INSERT INTO aut_area
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >fid,</if>
+             <if test="name != null" >name,</if>
+             <if test="depict != null" >depict,</if>
+             <if test="orders != null" >orders,</if>
+             <if test="status != null" >status,</if>
+             <if test="modify_userfid != null" >modify_userfid,</if>
+             <if test="modifydate != null" >modifydate,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >#{fid},</if>
+             <if test="name != null" >#{name},</if>
+             <if test="depict != null" >#{depict},</if>
+             <if test="orders != null" >#{orders},</if>
+             <if test="status != null" >#{status},</if>
+             <if test="modify_userfid != null" >#{modify_userfid},</if>
+             <if test="modifydate != null" >#{modifydate},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deleteAutAreaByKey">
+         DELETE FROM aut_area WHERE fid = #{fid}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updateAutAreaByKey">
+         UPDATE aut_area
+         <trim prefix="SET" suffix="WHERE fid = #{fid}" suffixOverrides=",">
+             <if test="fid != null" >fid=#{fid},</if>
+             <if test="name != null" >name=#{name},</if>
+             <if test="depict != null" >depict=#{depict},</if>
+             <if test="orders != null" >orders=#{orders},</if>
+             <if test="status != null" >status=#{status},</if>
+             <if test="modify_userfid != null" >modify_userfid=#{modify_userfid},</if>
+             <if test="modifydate != null" >modifydate=#{modifydate},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectAutAreaByPrimary" parameterType="com.slk.authority.module.aut_area.po.AutArea" resultMap="BaseResultMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM aut_area
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertAutAreaBatch">
+        INSERT INTO aut_area (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{fid}
+            #{name}
+            #{depict}
+            #{orders}
+            #{status}
+            #{modify_userfid}
+            #{modifydate}
+            )
+        </foreach>
+    </insert>
+
+    <!--批量删除操作-->
+    <delete id="deleteAutAreaBatch">
+        DELETE  FROM aut_area
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量修改操作-->
+    <update id="updateAutAreaBatch">
+        UPDATE aut_area
+         <trim prefix="SET" suffixOverrides=",">
+             <trim prefix="fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.fid != null and fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="name = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.name != null and name !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.name}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="depict = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.depict != null and depict !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.depict}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="orders = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.orders != null and orders !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.orders}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="status = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.status != null and status !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.status}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modify_userfid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modify_userfid != null and modify_userfid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modify_userfid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modifydate = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modifydate != null and modifydate !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modifydate}
+                     </if>
+                 </foreach>
+             </trim>
+         </trim>
+    </update>
+
+    <!--批量修改操作-->
+    <update id="updateAutAreaBatchPrimary">
+        UPDATE aut_area SET (<include refid="Base_Column_List" />)
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item.fid}
+        </foreach>
+    </update>
+
+    <!--批量查询操作-->
+    <selece id="selectAutAreaBatchList" resultMap="">
+        SELECE <include refid="Base_Column_List" />  aut_area
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>

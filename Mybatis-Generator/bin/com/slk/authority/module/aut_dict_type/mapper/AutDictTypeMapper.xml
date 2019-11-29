@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.authority.module.aut_dict_type.mapper.AutDictTypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.authority.module.aut_dict_type.po.AutDictType" >
+        <id column="dict_id" property="dict_id" />
+        <result column="dict_name" property="dict_name" />
+        <result column="dict_type" property="dict_type" />
+        <result column="status" property="status" />
+        <result column="havdel" property="havdel" />
+        <result column="modify_userid" property="modify_userid" />
+        <result column="modify_date" property="modify_date" />
+        <result column="update_userid" property="update_userid" />
+        <result column="update_date" property="update_date" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.authority.module.aut_dict_type.po.AutDictTypeExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        dict_id,
+        dict_name,
+        dict_type,
+        status,
+        havdel,
+        modify_userid,
+        modify_date,
+        update_userid,
+        update_date,
+        remark,
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="dict_id != null and dict_id !=''" >dict_id,</if>
+            <if test="dict_name != null and dict_name !=''" >dict_name,</if>
+            <if test="dict_type != null and dict_type !=''" >dict_type,</if>
+            <if test="status != null and status !=''" >status,</if>
+            <if test="havdel != null and havdel !=''" >havdel,</if>
+            <if test="modify_userid != null and modify_userid !=''" >modify_userid,</if>
+            <if test="modify_date != null and modify_date !=''" >modify_date,</if>
+            <if test="update_userid != null and update_userid !=''" >update_userid,</if>
+            <if test="update_date != null and update_date !=''" >update_date,</if>
+            <if test="remark != null and remark !=''" >remark,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertAutDictTypeInfo">
+         INSERT INTO aut_dict_type
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="dict_id != null" >dict_id,</if>
+             <if test="dict_name != null" >dict_name,</if>
+             <if test="dict_type != null" >dict_type,</if>
+             <if test="status != null" >status,</if>
+             <if test="havdel != null" >havdel,</if>
+             <if test="modify_userid != null" >modify_userid,</if>
+             <if test="modify_date != null" >modify_date,</if>
+             <if test="update_userid != null" >update_userid,</if>
+             <if test="update_date != null" >update_date,</if>
+             <if test="remark != null" >remark,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="dict_id != null" >#{dict_id},</if>
+             <if test="dict_name != null" >#{dict_name},</if>
+             <if test="dict_type != null" >#{dict_type},</if>
+             <if test="status != null" >#{status},</if>
+             <if test="havdel != null" >#{havdel},</if>
+             <if test="modify_userid != null" >#{modify_userid},</if>
+             <if test="modify_date != null" >#{modify_date},</if>
+             <if test="update_userid != null" >#{update_userid},</if>
+             <if test="update_date != null" >#{update_date},</if>
+             <if test="remark != null" >#{remark},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deleteAutDictTypeByKey">
+         DELETE FROM aut_dict_type WHERE dict_id = #{dict_id}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updateAutDictTypeByKey">
+         UPDATE aut_dict_type
+         <trim prefix="SET" suffix="WHERE dict_id = #{dict_id}" suffixOverrides=",">
+             <if test="dict_id != null" >dict_id=#{dict_id},</if>
+             <if test="dict_name != null" >dict_name=#{dict_name},</if>
+             <if test="dict_type != null" >dict_type=#{dict_type},</if>
+             <if test="status != null" >status=#{status},</if>
+             <if test="havdel != null" >havdel=#{havdel},</if>
+             <if test="modify_userid != null" >modify_userid=#{modify_userid},</if>
+             <if test="modify_date != null" >modify_date=#{modify_date},</if>
+             <if test="update_userid != null" >update_userid=#{update_userid},</if>
+             <if test="update_date != null" >update_date=#{update_date},</if>
+             <if test="remark != null" >remark=#{remark},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectAutDictTypeByPrimary" parameterType="com.slk.authority.module.aut_dict_type.po.AutDictType" resultMap="BaseResultMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM aut_dict_type
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertAutDictTypeBatch">
+        INSERT INTO aut_dict_type (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{dict_id}
+            #{dict_name}
+            #{dict_type}
+            #{status}
+            #{havdel}
+            #{modify_userid}
+            #{modify_date}
+            #{update_userid}
+            #{update_date}
+            #{remark}
+            )
+        </foreach>
+    </insert>
+
+    <!--批量删除操作-->
+    <delete id="deleteAutDictTypeBatch">
+        DELETE  FROM aut_dict_type
+        WHERE dict_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量修改操作-->
+    <update id="updateAutDictTypeBatch">
+        UPDATE aut_dict_type
+         <trim prefix="SET" suffixOverrides=",">
+             <trim prefix="dict_id = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.dict_id != null and dict_id !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.dict_id}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="dict_name = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.dict_name != null and dict_name !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.dict_name}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="dict_type = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.dict_type != null and dict_type !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.dict_type}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="status = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.status != null and status !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.status}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="havdel = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.havdel != null and havdel !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.havdel}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modify_userid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modify_userid != null and modify_userid !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.modify_userid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modify_date = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modify_date != null and modify_date !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.modify_date}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="update_userid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.update_userid != null and update_userid !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.update_userid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="update_date = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.update_date != null and update_date !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.update_date}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="remark = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.remark != null and remark !=''" >
+                         WHEN dict_id=#{item.dict_id} THEN #{item.remark}
+                     </if>
+                 </foreach>
+             </trim>
+         </trim>
+    </update>
+
+    <!--批量修改操作-->
+    <update id="updateAutDictTypeBatchPrimary">
+        UPDATE aut_dict_type SET (<include refid="Base_Column_List" />)
+        WHERE dict_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item.dict_id}
+        </foreach>
+    </update>
+
+    <!--批量查询操作-->
+    <selece id="selectAutDictTypeBatchList" resultMap="">
+        SELECE <include refid="Base_Column_List" />  aut_dict_type
+        WHERE dict_id IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>

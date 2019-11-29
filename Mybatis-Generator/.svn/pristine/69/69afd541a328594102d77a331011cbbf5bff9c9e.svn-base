@@ -1,0 +1,10 @@
+mysql.driver=com.mysql.jdbc.Driver
+mysql.url=jdbc:mysql://192.168.1.100:3306/wph?characterEncoding=UTF-8
+mysql.username=admin
+mysql.password=admin
+
+
+project.po=com.slk.wph.module.Test.po
+project.mapper=com.slk.wph.module.Test.mapper
+project.service=com.slk.wph.module.Test.service.TestService
+project.table=Test

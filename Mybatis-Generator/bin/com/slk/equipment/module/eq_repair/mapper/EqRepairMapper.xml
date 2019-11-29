@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.equipment.module.eq_repair.mapper.EqRepairMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.equipment.module.eq_repair.po.EqRepair" >
+        <id column="fid" property="fid" />
+        <result column="repair_code" property="repair_code" />
+        <result column="repair_data" property="repair_data" />
+        <result column="equipment_id" property="equipment_id" />
+        <result column="position" property="position" />
+        <result column="applicant" property="applicant" />
+        <result column="phone" property="phone" />
+        <result column="urgentstate" property="urgentstate" />
+        <result column="urgenttime" property="urgenttime" />
+        <result column="contentstate" property="contentstate" />
+        <result column="content_one" property="content_one" />
+        <result column="content_two" property="content_two" />
+        <result column="picture" property="picture" />
+        <result column="refuse" property="refuse" />
+        <result column="state" property="state" />
+        <result column="grades" property="grades" />
+        <result column="evaluation" property="evaluation" />
+        <result column="ordername" property="ordername" />
+        <result column="order_date" property="order_date" />
+        <result column="repairtype" property="repairtype" />
+        <result column="cost" property="cost" />
+        <result column="othercost" property="othercost" />
+        <result column="explain" property="explain" />
+        <result column="problem" property="problem" />
+        <result column="printimg" property="printimg" />
+        <result column="finish_date" property="finish_date" />
+        <result column="modify_userid" property="modify_userid" />
+        <result column="modify_date" property="modify_date" />
+        <result column="update_date" property="update_date" />
+    </resultMap>
+</mapper>

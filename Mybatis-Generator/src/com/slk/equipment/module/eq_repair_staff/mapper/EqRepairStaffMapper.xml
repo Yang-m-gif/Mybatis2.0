@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.equipment.module.eq_repair_staff.mapper.EqRepairStaffMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.equipment.module.eq_repair_staff.po.EqRepairStaff" >
+        <id column="fid" property="fid" />
+        <result column="name" property="name" />
+        <result column="phone" property="phone" />
+        <result column="modify_userid" property="modify_userid" />
+        <result column="modify_date" property="modify_date" />
+    </resultMap>
+</mapper>

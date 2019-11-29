@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.version.module.vg_developer.mapper.VgDeveloperMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.version.module.vg_developer.po.VgDeveloper" >
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="state" property="state" />
+        <result column="createuser_id" property="createuser_id" />
+        <result column="createtime" property="createtime" />
+    </resultMap>
+</mapper>

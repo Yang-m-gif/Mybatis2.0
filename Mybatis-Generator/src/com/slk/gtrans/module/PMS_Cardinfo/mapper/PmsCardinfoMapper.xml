@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.gtrans.module.PMS_Cardinfo.mapper.PmsCardinfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.gtrans.module.PMS_Cardinfo.po.PmsCardinfo" >
+        <id column="fid" property="fid" />
+        <result column="slk_area_fid" property="slk_area_fid" />
+        <result column="slk_project_fid" property="slk_project_fid" />
+        <result column="pms_building_fid" property="pms_building_fid" />
+        <result column="pms_floor_fid" property="pms_floor_fid" />
+        <result column="pms_area_fid" property="pms_area_fid" />
+        <result column="pms_dpinfo_fid" property="pms_dpinfo_fid" />
+        <result column="name" property="name" />
+        <result column="coordinate" property="coordinate" />
+        <result column="qrcode" property="qrcode" />
+        <result column="depict" property="depict" />
+        <result column="modify_userfid" property="modify_userfid" />
+        <result column="modifyname" property="modifyname" />
+        <result column="modifydate" property="modifydate" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.gtrans.module.PMS_Cardinfo.po.PmsCardinfoExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fid,
+        slk_area_fid,
+        slk_project_fid,
+        pms_building_fid,
+        pms_floor_fid,
+        pms_area_fid,
+        pms_dpinfo_fid,
+        name,
+        coordinate,
+        qrcode,
+        depict,
+        modify_userfid,
+        modifyname,
+        modifydate,
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="fid != null and fid !=''" >fid,</if>
+            <if test="slk_area_fid != null and slk_area_fid !=''" >slk_area_fid,</if>
+            <if test="slk_project_fid != null and slk_project_fid !=''" >slk_project_fid,</if>
+            <if test="pms_building_fid != null and pms_building_fid !=''" >pms_building_fid,</if>
+            <if test="pms_floor_fid != null and pms_floor_fid !=''" >pms_floor_fid,</if>
+            <if test="pms_area_fid != null and pms_area_fid !=''" >pms_area_fid,</if>
+            <if test="pms_dpinfo_fid != null and pms_dpinfo_fid !=''" >pms_dpinfo_fid,</if>
+            <if test="name != null and name !=''" >name,</if>
+            <if test="coordinate != null and coordinate !=''" >coordinate,</if>
+            <if test="qrcode != null and qrcode !=''" >qrcode,</if>
+            <if test="depict != null and depict !=''" >depict,</if>
+            <if test="modify_userfid != null and modify_userfid !=''" >modify_userfid,</if>
+            <if test="modifyname != null and modifyname !=''" >modifyname,</if>
+            <if test="modifydate != null and modifydate !=''" >modifydate,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertPmsCardinfoInfo">
+         INSERT INTO pms_cardinfo
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >fid,</if>
+             <if test="slk_area_fid != null" >slk_area_fid,</if>
+             <if test="slk_project_fid != null" >slk_project_fid,</if>
+             <if test="pms_building_fid != null" >pms_building_fid,</if>
+             <if test="pms_floor_fid != null" >pms_floor_fid,</if>
+             <if test="pms_area_fid != null" >pms_area_fid,</if>
+             <if test="pms_dpinfo_fid != null" >pms_dpinfo_fid,</if>
+             <if test="name != null" >name,</if>
+             <if test="coordinate != null" >coordinate,</if>
+             <if test="qrcode != null" >qrcode,</if>
+             <if test="depict != null" >depict,</if>
+             <if test="modify_userfid != null" >modify_userfid,</if>
+             <if test="modifyname != null" >modifyname,</if>
+             <if test="modifydate != null" >modifydate,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >#{fid},</if>
+             <if test="slk_area_fid != null" >#{slk_area_fid},</if>
+             <if test="slk_project_fid != null" >#{slk_project_fid},</if>
+             <if test="pms_building_fid != null" >#{pms_building_fid},</if>
+             <if test="pms_floor_fid != null" >#{pms_floor_fid},</if>
+             <if test="pms_area_fid != null" >#{pms_area_fid},</if>
+             <if test="pms_dpinfo_fid != null" >#{pms_dpinfo_fid},</if>
+             <if test="name != null" >#{name},</if>
+             <if test="coordinate != null" >#{coordinate},</if>
+             <if test="qrcode != null" >#{qrcode},</if>
+             <if test="depict != null" >#{depict},</if>
+             <if test="modify_userfid != null" >#{modify_userfid},</if>
+             <if test="modifyname != null" >#{modifyname},</if>
+             <if test="modifydate != null" >#{modifydate},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deletePmsCardinfoByKey">
+         DELETE FROM pms_cardinfo WHERE fid = #{fid}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updatePmsCardinfoByKey">
+         UPDATE pms_cardinfo
+         <trim prefix="SET" suffix="WHERE fid = #{fid}" suffixOverrides=",">
+             <if test="fid != null" >fid=#{fid},</if>
+             <if test="slk_area_fid != null" >slk_area_fid=#{slk_area_fid},</if>
+             <if test="slk_project_fid != null" >slk_project_fid=#{slk_project_fid},</if>
+             <if test="pms_building_fid != null" >pms_building_fid=#{pms_building_fid},</if>
+             <if test="pms_floor_fid != null" >pms_floor_fid=#{pms_floor_fid},</if>
+             <if test="pms_area_fid != null" >pms_area_fid=#{pms_area_fid},</if>
+             <if test="pms_dpinfo_fid != null" >pms_dpinfo_fid=#{pms_dpinfo_fid},</if>
+             <if test="name != null" >name=#{name},</if>
+             <if test="coordinate != null" >coordinate=#{coordinate},</if>
+             <if test="qrcode != null" >qrcode=#{qrcode},</if>
+             <if test="depict != null" >depict=#{depict},</if>
+             <if test="modify_userfid != null" >modify_userfid=#{modify_userfid},</if>
+             <if test="modifyname != null" >modifyname=#{modifyname},</if>
+             <if test="modifydate != null" >modifydate=#{modifydate},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectPmsCardinfoByPrimary" parameterType="com.slk.gtrans.module.PMS_Cardinfo.po.PmsCardinfo" resultMap="BaseResultMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM pms_cardinfo
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertPmsCardinfoBatch">
+        INSERT INTO pms_cardinfo (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{fid}
+            #{slk_area_fid}
+            #{slk_project_fid}
+            #{pms_building_fid}
+            #{pms_floor_fid}
+            #{pms_area_fid}
+            #{pms_dpinfo_fid}
+            #{name}
+            #{coordinate}
+            #{qrcode}
+            #{depict}
+            #{modify_userfid}
+            #{modifyname}
+            #{modifydate}
+            )
+        </foreach>
+    </insert>
+
+    <!--批量删除操作-->
+    <delete id="deletePmsCardinfoBatch">
+        DELETE  FROM pms_cardinfo
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--批量修改操作-->
+    <update id="updatePmsCardinfoBatch">
+        UPDATE pms_cardinfo
+         <trim prefix="SET" suffixOverrides=",">
+             <trim prefix="fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.fid != null and fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="slk_area_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.slk_area_fid != null and slk_area_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.slk_area_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="slk_project_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.slk_project_fid != null and slk_project_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.slk_project_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="pms_building_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.pms_building_fid != null and pms_building_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.pms_building_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="pms_floor_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.pms_floor_fid != null and pms_floor_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.pms_floor_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="pms_area_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.pms_area_fid != null and pms_area_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.pms_area_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="pms_dpinfo_fid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.pms_dpinfo_fid != null and pms_dpinfo_fid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.pms_dpinfo_fid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="name = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.name != null and name !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.name}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="coordinate = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.coordinate != null and coordinate !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.coordinate}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="qrcode = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.qrcode != null and qrcode !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.qrcode}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="depict = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.depict != null and depict !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.depict}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modify_userfid = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modify_userfid != null and modify_userfid !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modify_userfid}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modifyname = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modifyname != null and modifyname !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modifyname}
+                     </if>
+                 </foreach>
+             </trim>
+             <trim prefix="modifydate = case" suffix="end,">
+                 <foreach collection="list" item="item" index="index" >
+                     <if test="item.modifydate != null and modifydate !=''" >
+                         WHEN fid=#{item.fid} THEN #{item.modifydate}
+                     </if>
+                 </foreach>
+             </trim>
+         </trim>
+    </update>
+
+    <!--批量修改操作-->
+    <update id="updatePmsCardinfoBatchPrimary">
+        UPDATE pms_cardinfo SET (<include refid="Base_Column_List" />)
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item.fid}
+        </foreach>
+    </update>
+
+    <!--批量查询操作-->
+    <selece id="selectPmsCardinfoBatchList" resultMap="">
+        SELECE <include refid="Base_Column_List" />  pms_cardinfo
+        WHERE fid IN
+        <foreach collection="list" item="item" separator="," open="(" close=")" >
+            #{item}
+        </foreach>
+    </update>
+
+</mapper>

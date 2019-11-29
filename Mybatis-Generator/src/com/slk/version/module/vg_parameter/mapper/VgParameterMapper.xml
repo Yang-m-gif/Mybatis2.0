@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.version.module.vg_parameter.mapper.VgParameterMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.version.module.vg_parameter.po.VgParameter" >
+        <id column="id" property="id" />
+        <result column="interface_id" property="interface_id" />
+        <result column="project_id" property="project_id" />
+        <result column="parameter_type_id" property="parameter_type_id" />
+        <result column="name" property="name" />
+        <result column="type" property="type" />
+        <result column="description" property="description" />
+        <result column="modify_userid" property="modify_userid" />
+        <result column="modify_date" property="modify_date" />
+        <result column="state" property="state" />
+        <result column="transfer_model" property="transfer_model" />
+    </resultMap>
+</mapper>

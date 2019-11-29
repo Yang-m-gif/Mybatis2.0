@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.pms.module.PR_Facility_Type.mapper.PrFacilityTypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.pms.module.PR_Facility_Type.po.PrFacilityType" >
+        <id column="fid" property="fid" />
+        <result column="slk_area_fid" property="slk_area_fid" />
+        <result column="name" property="name" />
+        <result column="remark" property="remark" />
+        <result column="manager_ids" property="manager_ids" />
+        <result column="patrol_ids" property="patrol_ids" />
+        <result column="status" property="status" />
+        <result column="modify_userfid" property="modify_userfid" />
+        <result column="modifyname" property="modifyname" />
+        <result column="modifyrole" property="modifyrole" />
+        <result column="modifydate" property="modifydate" />
+    </resultMap>
+
+    <resultMap id="BaseResultExtendMap" type="com.slk.pms.module.PR_Facility_Type.po.PrFacilityTypeExtend" extends="BaseResultMap" >
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        fid,slk_area_fid,name,remark,manager_ids,patrol_ids,status,modify_userfid,modifyname,modifyrole,modifydate
+    </sql>
+
+    <sql id="Base_Where_List">
+        <where>
+            <if test="fid != null and fid !=''" >fid,</if>
+            <if test="slk_area_fid != null and slk_area_fid !=''" >slk_area_fid,</if>
+            <if test="name != null and name !=''" >name,</if>
+            <if test="remark != null and remark !=''" >remark,</if>
+            <if test="manager_ids != null and manager_ids !=''" >manager_ids,</if>
+            <if test="patrol_ids != null and patrol_ids !=''" >patrol_ids,</if>
+            <if test="status != null and status !=''" >status,</if>
+            <if test="modify_userfid != null and modify_userfid !=''" >modify_userfid,</if>
+            <if test="modifyname != null and modifyname !=''" >modifyname,</if>
+            <if test="modifyrole != null and modifyrole !=''" >modifyrole,</if>
+            <if test="modifydate != null and modifydate !=''" >modifydate,</if>
+        </where>
+    </sql>
+
+    <!--添加操作-->
+    <insert id="insertPrFacilityTypeInfo">
+         INSERT INTO pr_facility_type
+         <trim prefix="(" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >fid,</if>
+             <if test="slk_area_fid != null" >slk_area_fid,</if>
+             <if test="name != null" >name,</if>
+             <if test="remark != null" >remark,</if>
+             <if test="manager_ids != null" >manager_ids,</if>
+             <if test="patrol_ids != null" >patrol_ids,</if>
+             <if test="status != null" >status,</if>
+             <if test="modify_userfid != null" >modify_userfid,</if>
+             <if test="modifyname != null" >modifyname,</if>
+             <if test="modifyrole != null" >modifyrole,</if>
+             <if test="modifydate != null" >modifydate,</if>
+          </trim>
+          <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+             <if test="fid != null" >#{fid},</if>
+             <if test="slk_area_fid != null" >#{slk_area_fid},</if>
+             <if test="name != null" >#{name},</if>
+             <if test="remark != null" >#{remark},</if>
+             <if test="manager_ids != null" >#{manager_ids},</if>
+             <if test="patrol_ids != null" >#{patrol_ids},</if>
+             <if test="status != null" >#{status},</if>
+             <if test="modify_userfid != null" >#{modify_userfid},</if>
+             <if test="modifyname != null" >#{modifyname},</if>
+             <if test="modifyrole != null" >#{modifyrole},</if>
+             <if test="modifydate != null" >#{modifydate},</if>
+          </trim>
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deletePrFacilityTypeByKey">
+         DELETE FROM pr_facility_type WHERE fid = #{fid}
+    </delete>
+
+    <!--修改操作-->
+    <update id="updatePrFacilityTypeByKey">
+         UPDATE pr_facility_type
+         <trim prefix="SET" suffix="WHERE fid = #{fid}" suffixOverrides=",">
+             <if test="fid != null" >fid=#{fid},</if>
+             <if test="slk_area_fid != null" >slk_area_fid=#{slk_area_fid},</if>
+             <if test="name != null" >name=#{name},</if>
+             <if test="remark != null" >remark=#{remark},</if>
+             <if test="manager_ids != null" >manager_ids=#{manager_ids},</if>
+             <if test="patrol_ids != null" >patrol_ids=#{patrol_ids},</if>
+             <if test="status != null" >status=#{status},</if>
+             <if test="modify_userfid != null" >modify_userfid=#{modify_userfid},</if>
+             <if test="modifyname != null" >modifyname=#{modifyname},</if>
+             <if test="modifyrole != null" >modifyrole=#{modifyrole},</if>
+             <if test="modifydate != null" >modifydate=#{modifydate},</if>
+          </trim>
+    </update>
+
+    <!--查询操作-->
+    <select id="selectPrFacilityTypeByPrimary" parameterType="com.slk.pms.module.PR_Facility_Type.po.PrFacilityType" resultMap="BaseResultExtendMap" >
+         SELECT
+             <include refid="Base_Column_List" />
+         FROM pr_facility_type
+         <include refid="Base_Where_List" />
+    </select>
+
+    <!--批量添加操作-->
+    <insert id="insertPrFacilityTypeBatch">
+        INSERT INTO pr_facility_type (<include refid="Base_Column_List" />)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{fid}
+            #{slk_area_fid}
+            #{name}
+            #{remark}
+            #{manager_ids}
+            #{patrol_ids}
+            #{status}
+            #{modify_userfid}
+            #{modifyname}
+            #{modifyrole}
+            #{modifydate}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

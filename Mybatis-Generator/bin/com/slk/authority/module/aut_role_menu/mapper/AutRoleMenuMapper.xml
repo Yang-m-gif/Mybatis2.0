@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.authority.module.aut_role_menu.mapper.AutRoleMenuMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.authority.module.aut_role_menu.po.AutRoleMenu" >
+        <id column="id" property="id" />
+        <result column="region_id" property="region_id" />
+        <result column="regionname" property="regionname" />
+        <result column="role_id" property="role_id" />
+        <result column="rolename" property="rolename" />
+        <result column="menu_id" property="menu_id" />
+        <result column="menuname" property="menuname" />
+        <result column="menu_url" property="menu_url" />
+        <result column="modify_userid" property="modify_userid" />
+        <result column="modify_date" property="modify_date" />
+    </resultMap>
+</mapper>

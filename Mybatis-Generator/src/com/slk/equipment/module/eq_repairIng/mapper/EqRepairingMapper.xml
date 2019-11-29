@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.slk.equipment.module.eq_repairIng.mapper.EqRepairingMapper">
+
+    <resultMap id="BaseResultMap" type="com.slk.equipment.module.eq_repairIng.po.EqRepairing" >
+        <id column="fid" property="fid" />
+        <result column="repair_fid" property="repair_fid" />
+        <result column="repair_code" property="repair_code" />
+        <result column="state" property="state" />
+        <result column="modify_userid" property="modify_userid" />
+        <result column="modify_date" property="modify_date" />
+        <result column="reason" property="reason" />
+    </resultMap>
+</mapper>
